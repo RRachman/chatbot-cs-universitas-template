@@ -1,61 +1,376 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Chatbot CS Universitas Template 🤖🎓
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Template interaktif untuk membangun chatbot layanan customer service (CS) universitas dengan Rasa + React.js
 
-## About Laravel
+## 🌟 Demo Live
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[🔗 Coba Demo di Sini](https://your-demo-link.vercel.app) | [📱 Telegram Bot](https://t.me/your_bot)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![Chatbot Preview](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=University+Chatbot+Demo)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Fitur Utama
 
-## Learning Laravel
+- 💬 **Chat Interface Modern** - UI/UX yang responsive dan user-friendly
+- 🎨 **Custom Branding** - Dapat disesuaikan dengan identitas universitas
+- 📱 **Multi-Platform** - Web, Mobile, Telegram, WhatsApp
+- 🧠 **AI Powered** - Natural Language Understanding dengan Rasa
+- 🔄 **Real-time Updates** - Live chat dengan action server
+- 📊 **Analytics Dashboard** - Monitor performa chatbot
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tech Stack
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Frontend:**
+- React.js 18 + TypeScript
+- Tailwind CSS
+- Framer Motion (animations)
+- Axios untuk API calls
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Backend:**
+- Rasa 3.x
+- Python 3.8+
+- FastAPI (optional)
+- SQLite/PostgreSQL
 
-## Laravel Sponsors
+## ⚡ Quick Start
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1. Clone Repository
 
-### Premium Partners
+```bash
+git clone https://github.com/RRachman/chatbot-cs-universitas-template.git
+cd chatbot-cs-universitas-template
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 2. Setup Backend (Rasa)
 
-## Contributing
+```bash
+# Masuk ke directory rasa
+cd rasa-chatbot
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Install dependencies
+pip install -r requirements.txt
 
-## Code of Conduct
+# Train model
+rasa train
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Jalankan action server
+rasa run actions &
 
-## Security Vulnerabilities
+# Jalankan rasa server
+rasa run --enable-api --cors "*"
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. Setup Frontend (React)
 
-## License
+```bash
+# Kembali ke root directory dan masuk ke frontend
+cd ../frontend
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Install dependencies
+npm install
+
+# Jalankan development server
+npm start
+```
+
+Buka [http://localhost:3000](http://localhost:3000) untuk melihat hasil.
+
+## 🎨 Customisasi
+
+### Mengganti Logo dan Branding
+
+Edit file `frontend/src/components/Branding.js`:
+
+```jsx
+// Ganti dengan logo universitas Anda
+const UniversityBranding = () => (
+  <div className="branding">
+    <img 
+      src="/path/to/your-university-logo.png" 
+      alt="University Logo" 
+      className="logo"
+    />
+    <h1>Nama Universitas Anda</h1>
+    <p>Chatbot Layanan Mahasiswa</p>
+  </div>
+);
+```
+
+### Warna Custom
+
+Edit `frontend/tailwind.config.js`:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          500: '#YourColor', // Warna utama universitas
+        }
+      }
+    }
+  }
+}
+```
+
+## 📁 Struktur Proyek Lengkap
+
+```
+chatbot-cs-universitas-template/
+├── 📁 rasa-chatbot/                 # Backend Rasa
+│   ├── data/
+│   │   ├── nlu.yml
+│   │   ├── stories.yml
+│   │   └── rules.yml
+│   ├── actions/
+│   │   └── actions.py
+│   ├── domain.yml
+│   └── config.yml
+├── 📁 frontend/                     # React Frontend
+│   ├── public/
+│   │   ├── index.html
+│   │   └── university-logo.png     # Logo universitas
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ChatInterface.js
+│   │   │   ├── MessageBubble.js
+│   │   │   └── UniversityHeader.js
+│   │   ├── styles/
+│   │   │   └── chatbot.css
+│   │   └── App.js
+│   └── package.json
+├── 📁 docs/                         # Dokumentasi
+├── 📁 screenshots/                  # Screenshot aplikasi
+└── README.md
+```
+
+## 🎯 Komponen Interaktif
+
+### Chat Interface React Component
+
+```jsx
+// frontend/src/components/ChatInterface.js
+import React, { useState, useRef, useEffect } from 'react';
+import MessageBubble from './MessageBubble';
+import UniversityHeader from './UniversityHeader';
+
+const ChatInterface = () => {
+  const [messages, setMessages] = useState([]);
+  const [inputMessage, setInputMessage] = useState('');
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const sendMessage = async () => {
+    if (inputMessage.trim() === '') return;
+
+    // Add user message
+    const userMessage = { type: 'user', text: inputMessage };
+    setMessages(prev => [...prev, userMessage]);
+    
+    // Send to Rasa backend
+    try {
+      const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sender: 'user', message: inputMessage })
+      });
+      
+      const data = await response.json();
+      data.forEach(msg => {
+        setMessages(prev => [...prev, { type: 'bot', text: msg.text }]);
+      });
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    
+    setInputMessage('');
+  };
+
+  return (
+    <div className="chat-container">
+      <UniversityHeader />
+      
+      <div className="messages-container">
+        {messages.map((msg, index) => (
+          <MessageBubble key={index} message={msg} />
+        ))}
+        <div ref={messagesEndRef} />
+      </div>
+
+      <div className="input-container">
+        <input
+          type="text"
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+          placeholder="Tanyakan tentang universitas..."
+          className="message-input"
+        />
+        <button onClick={sendMessage} className="send-button">
+          <span>Kirim</span>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ChatInterface;
+```
+
+### Animasi dengan Framer Motion
+
+```jsx
+// frontend/src/components/AnimatedMessage.js
+import { motion } from 'framer-motion';
+
+const AnimatedMessage = ({ message, isUser }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className={`message ${isUser ? 'user-message' : 'bot-message'}`}
+    >
+      {message}
+    </motion.div>
+  );
+};
+```
+
+## 🎨 Styling dengan Tailwind CSS
+
+```css
+/* frontend/src/styles/chatbot.css */
+.chat-container {
+  @apply flex flex-col h-screen bg-gradient-to-br from-blue-50 to-indigo-100;
+}
+
+.university-header {
+  @apply bg-gradient-to-r from-blue-600 to-purple-700 text-white p-4 shadow-lg;
+}
+
+.messages-container {
+  @apply flex-1 overflow-y-auto p-4 space-y-4;
+}
+
+.user-message {
+  @apply bg-blue-500 text-white p-3 rounded-2xl rounded-br-none max-w-xs ml-auto shadow-md;
+}
+
+.bot-message {
+  @apply bg-white text-gray-800 p-3 rounded-2xl rounded-bl-none max-w-xs shadow-md;
+}
+
+.message-input {
+  @apply flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.send-button {
+  @apply bg-blue-500 text-white rounded-full p-2 w-12 h-12 flex items-center justify-center hover:bg-blue-600 transition-colors shadow-lg;
+}
+```
+
+## 📱 Integrasi Platform
+
+### Telegram Bot
+
+```python
+# rasa-chatbot/credentials.yml
+telegram:
+  access_token: "YOUR_TELEGRAM_TOKEN"
+  verify: "your_bot"
+  webhook_url: "https://yourdomain.com/webhooks/telegram/webhook"
+```
+
+### WhatsApp via Twilio
+
+```python
+twilio:
+  account_sid: "YOUR_ACCOUNT_SID"
+  auth_token: "YOUR_AUTH_TOKEN"
+  twilio_number: "YOUR_TWILIO_NUMBER"
+```
+
+## 🚀 Deployment
+
+### Deploy Frontend (Vercel/Netlify)
+
+```bash
+# Build project
+npm run build
+
+# Deploy ke Vercel
+npm install -g vercel
+vercel --prod
+```
+
+### Deploy Rasa Backend
+
+```bash
+# Menggunakan Docker
+docker build -t university-chatbot .
+docker run -p 5005:5005 university-chatbot
+
+# Atau deploy ke Heroku
+heroku container:push web -a your-app-name
+heroku container:release web -a your-app-name
+```
+
+## 📊 Analytics & Monitoring
+
+```python
+# actions/analytics_actions.py
+class ActionLogConversation(Action):
+    def name(self) -> Text:
+        return "action_log_conversation"
+
+    def run(self, dispatcher, tracker, domain):
+        # Log conversation ke database
+        conversation_data = {
+            'user_id': tracker.sender_id,
+            'message': tracker.latest_message.get('text'),
+            'intent': tracker.latest_message.get('intent', {}).get('name'),
+            'timestamp': datetime.now()
+        }
+        # Simpan ke database
+        return []
+```
+
+## 🤝 Kontribusi
+
+Kami welcome kontribusi! Silakan:
+
+1. Fork repository
+2. Buat feature branch: `git checkout -b feature/fitur-keren`
+3. Commit changes: `git commit -am 'Tambahkan fitur keren'`
+4. Push branch: `git push origin feature/fitur-keren`
+5. Submit pull request
+
+## 📞 Support
+
+- 📧 Email: support@university-chatbot.dev
+- 💬 Discord: [Join Community](https://discord.gg/your-link)
+- 🐛 Issues: [GitHub Issues](https://github.com/RRachman/chatbot-cs-universitas-template/issues)
+
+## 📄 License
+
+MIT License - lihat [LICENSE](LICENSE) file untuk detail.
+
+---
+
+<div align="center">
+
+**Dibuat dengan ❤️ untuk Pendidikan Indonesia yang Lebih Baik**
+
+![University Logo](https://via.placeholder.com/150x150/4F46E5/FFFFFF?text=UNIV)
+
+[🚀 Coba Sekarang] • [📚 Dokumentasi] • [🌟 Beri Bintang]
+
+</div>
